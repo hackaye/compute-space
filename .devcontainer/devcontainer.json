@@ -13,7 +13,7 @@
             "onAutoForward": "openPreview"
         }
     },
-    "postStartCommand": "npm install && npx --yes @fastly/cli compute serve",
+    "postStartCommand": "npm install && npx --yes @fastly/cli compute serve --watch",
     "customizations": {
         "vscode": {
             "extensions": [
