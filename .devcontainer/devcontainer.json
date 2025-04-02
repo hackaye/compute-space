@@ -8,17 +8,25 @@
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
 	"portsAttributes": {
-        "7676": {
-            "label": "Compute",
-            "onAutoForward": "openPreview"
-        }
-    },
-    "postStartCommand": "npm install && npx --yes @fastly/cli compute serve --watch",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-vscode.live-server"
-            ]
-        }
-    }
+		"7676": {
+			"label": "Compute",
+			"onAutoForward": "openPreview"
+		}
+	},
+	"updateContentCommand": "npm install",
+	"postAttachCommand": "npx --yes @fastly/cli compute serve --watch",
+	"waitFor": "updateContentCommand",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.live-server"
+			]
+		}
+	}
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
