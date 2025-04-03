@@ -19,7 +19,6 @@
 	"customizations": {
   		"codespaces": {
     			"openFiles": [
-      				"README.md",
 				"src/index.js"
     			]
   		},
