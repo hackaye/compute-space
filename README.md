@@ -2,6 +2,8 @@
 
 Hiya this is an app that runs at the edge!
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SueSmith/my-compute-app)
+
 Try the app out by opening it in a codespace: 
 
 * Create a fork of this repo
