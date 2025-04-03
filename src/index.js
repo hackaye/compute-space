@@ -58,6 +58,16 @@ async function handleRequest(_event) {
     backend: "website",
   });
 
+  if(url.pathname.indexOf(".json") >= 0) {
+    let data = await backendResponse.json();
+    let content = `<strong>${data.information}</strong>`;
+    return new Response(getSynthPage("📊 DATA 📊", content), {
+      status: 200,
+      headers: {
+        "Content-Type": "text/html",
+      },
+    });
+  }
   if(backendResponse.status==404){
     return new Response(getSynthPage("⚠️ 404 ⚠️", "Uh oh the page you requested wasn't found"), {
       status: 404,
