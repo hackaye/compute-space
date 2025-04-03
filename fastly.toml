@@ -11,3 +11,8 @@ name = "Default starter for JavaScript"
 [scripts]
 build = "npm run build"
 post_init = "npm install"
+
+[local_server]
+  [local_server.backends]
+    [local_server.backends.website]
+      url = "https://suesmith.github.io/"
