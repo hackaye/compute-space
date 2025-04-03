@@ -16,3 +16,4 @@ post_init = "npm install"
   [local_server.backends]
     [local_server.backends.website]
       url = "https://suesmith.github.io/"
+      override_host = "suesmith.github.io"
