@@ -1,7 +1,5 @@
 /**
- * THIS COMPUTE CODE RUNS ON THE FASTLY EDGE
- *
- * 🚀 🚀 🚀 Make sure you deploy again whenever you make a change here 🚀 🚀 🚀
+ * This code runs on the Fastly Compute platform 🚀 
  */
 
 import { getGeolocationForIpAddress } from "fastly:geolocation";
