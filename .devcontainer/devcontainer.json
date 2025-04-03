@@ -17,6 +17,12 @@
 	"postAttachCommand": "npx --yes @fastly/cli compute serve --watch",
 	"waitFor": "updateContentCommand",
 	"customizations": {
+  		"codespaces": {
+    			"openFiles": [
+      				"README.md",
+				"src/index.js"
+    			]
+  		},
 		"vscode": {
 			"extensions": [
 				"ms-vscode.live-server"
