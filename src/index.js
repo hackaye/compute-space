@@ -2,14 +2,6 @@
  * THIS COMPUTE CODE RUNS ON THE FASTLY EDGE
  *
  * 🚀 🚀 🚀 Make sure you deploy again whenever you make a change here 🚀 🚀 🚀
- *
- * When the visitor makes a request for the deployed site
- *  - Our Compute code runs on a Fastly server
- *  - Grabs the user location from the request IP address
- *  - Makes the request to the origin for the site assets (HTML + CSS files, images)
- *  - Adds a cookie to the response and sends it back to the user
- * User's browser renders the web page and writes info to the page from the cookie
- *
  */
 
 import { getGeolocationForIpAddress } from "fastly:geolocation";
@@ -53,8 +45,11 @@ async function handleRequest(_event) {
     req = new Request(url, req);
   } catch (error) {
     console.error(error);
-    return new Response("Internal Server Error", {
+    return new Response(getSynthPage("😭 500 😭", "Uh oh something went wrong on the server"), {
       status: 500,
+      headers: {
+        "Content-Type": "text/html",
+      },
     });
   }
 
@@ -62,6 +57,15 @@ async function handleRequest(_event) {
   let backendResponse = await fetch(req, {
     backend: "website",
   });
+
+  if(backendResponse.status==404){
+    return new Response(getSynthPage("⚠️ 404 ⚠️", "Uh oh the page you requested wasn't found"), {
+      status: 404,
+      headers: {
+        "Content-Type": "text/html",
+      },
+    });
+  }
 
   // Tell the user about how this response was delivered with a cookie
   backendResponse.headers.set(
@@ -72,4 +76,24 @@ async function handleRequest(_event) {
   );
 
   return backendResponse;
+}
+
+// The synthetic page is tailored to the Glitch origin so tweak to suit your site!
+function getSynthPage(heading, message) {
+  // The default Glitch origin has a stylesheet called "style.css"
+  return `
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${heading}</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <h1>${heading}</h1>
+    <p>${message}</p>
+    <p>Go to <a href="/">the homepage</a></p>
+  </body>
+</html>`;
 }
