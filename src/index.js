@@ -4,6 +4,7 @@
 
 import { getGeolocationForIpAddress } from "fastly:geolocation";
 let where = "?";
+let root = "/"; //change this if your site is at a different path
 
 // We use a function to handle requests to the origin
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
@@ -38,6 +39,7 @@ async function handleRequest(_event) {
     // 🚧 🚧 🚧 Add the code from Step 4 in the README on the next line 🚧 🚧 🚧
     
     if (url.pathname.indexOf(".css") >= 0) url.pathname = style;
+    url.pathname = url.pathname.replace("/", root);
 
     // Build a new request
     req = new Request(url, req);
