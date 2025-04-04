@@ -14,13 +14,12 @@ Your codespace will perform a few setup tasks including automatically running yo
 
 ## Get to know the app
 
-This starter kit changes the behavior of a website at the edge. Check out the <a href="https://suesmith.github.io/" target="_blank">origin version of the site</a> – you might notice that the style is different at the edge, that's because our Compute code switches the stylesheet.
+This starter kit changes the behavior of a website at the edge. Check out the <a href="https://suesmith.github.io/" target="_blank">origin version of the site</a>.
 
 In your codespace preview:
 
 * Try opening a page that doesn't exist: `/ohno`
 * Now try a page that the origin returns as JSON: `/data.json`
-* Take a look in the `src/index.js` file for the code!
 
 Explore the code:
 
@@ -30,15 +29,14 @@ Explore the code:
 The functionality:
 
 * The app changes the stylesheet from `style.css` to `edge.css`
+* It grabs geolocation info about the request (this won't work reliably on the local server, read on to deploy to the Fastly network)
 * It also adds a cookie to the response (the origin website writes it into the page)
-* If the request is for a `json` file, send the data back in a synthetic HTML page
+* If the request is for a `json` file, we send the data back in a synthetic HTML page
 * We send synthetic pages back for any 404 or 500 errors
 
 ## Make a change
 
 Make a change to the `index.js` code, like changing the content in the synthetic HTML page! The Fastly CLI will automatically rebuild and run the app – you'll see the effects in the preview.
-
-> ⚠️ There are some functionalities that won't work on the local server like geolocation – deploy your app to the Fastly network to try these out.
 
 ## Deploy to Fastly
 
