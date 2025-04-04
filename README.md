@@ -1,7 +1,5 @@
 # My Compute App
 
-Hiya this is an app that runs at the edge!
-
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SueSmith/my-compute-app)
 
 Try the app out by opening it in a codespace: 
@@ -20,6 +18,8 @@ In your codespace preview:
 
 * Try opening a page that doesn't exist: `/ohno`
 * Now try a page that the origin returns as JSON: `/data.json`
+
+> 💡 **TIP**: Split the editor into two panes and drag the preview into the second one so that you can see your code and the website at the same time.
 
 Explore the code:
 
@@ -68,5 +68,9 @@ The Terminal will output the address of your new app – open it in the browser!
 ## Keep going!
 
 What else can you build on Compute? Check out the [code examples](https://www.fastly.com/documentation/solutions/examples/) for inspiration.
+
+You can also [clone the example website](https://github.com/suesmith/suesmith.github.io) and deploy it to GitHub Pages if you like:
+
+* In the Compute app `fasty.toml` update the `backend` addresses to suit your own site
 
 **Get help on the [Fastly community forum](https://community.fastly.com)**
