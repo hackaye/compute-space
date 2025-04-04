@@ -69,8 +69,6 @@ The Terminal will output the address of your new app – open it in the browser!
 
 What else can you build on Compute? Check out the [code examples](https://www.fastly.com/documentation/solutions/examples/) for inspiration.
 
-You can also [clone the example website](https://github.com/suesmith/suesmith.github.io) and deploy it to GitHub Pages if you like:
-
-* In the Compute app `fasty.toml` update the `backend` addresses to suit your own site
+You can also [clone the example website](https://github.com/suesmith/suesmith.github.io) and deploy it to GitHub Pages if you like by following the instructions in its README (make sure you update the `toml` and `index.js` `root` values in your clone of the Compute app).
 
 **Get help on the [Fastly community forum](https://community.fastly.com)**
