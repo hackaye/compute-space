@@ -17,15 +17,21 @@
 	"postAttachCommand": "npx --yes @fastly/cli compute serve --watch",
 	"waitFor": "updateContentCommand",
 	"customizations": {
-  		"codespaces": {
-    			"openFiles": [
-				"src/index.js"
-    			]
-  		},
+		"codespaces": {
+			"openFiles": [
+				"src/index.js",
+				"README.md"
+			]
+		},
 		"vscode": {
 			"extensions": [
 				"ms-vscode.live-server"
-			]
+			],
+			"settings": {
+				"workbench.editorAssociations": {
+					"*.md": "vscode.markdown.preview.editor"
+				}
+			}
 		}
 	}
 	// Features to add to the dev container. More info: https://containers.dev/features.
